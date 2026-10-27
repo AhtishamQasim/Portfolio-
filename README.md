@@ -2,7 +2,7 @@
 
 Personal portfolio of **Ahtisham Qasim**, a full-stack software engineer who builds production web platforms with Java, Spring, Node.js, React, PostgreSQL and Oracle.
 
-**Live site:** https://ahtishamqasim.github.io/Portfolio-/
+**Live site:** deployed on Vercel (link coming soon)
 
 ## About me
 
@@ -25,23 +25,38 @@ I design, build, test and deploy complete web systems: REST APIs with JWT authen
 
 ## About this site
 
-Hand-built with plain HTML, CSS and JavaScript. It has no framework and no build step.
+Hand-built with plain HTML, CSS and JavaScript, plus one small serverless function for the contact form. It has no framework and no build step.
 
+- AI-style interface: an interactive neural-network background, a live-typing code editor and deploy terminal, glowing HUD cards
+- Code showcase with syntax-highlighted Java, Node.js, React and SQL samples
 - Responsive on phone, tablet and desktop
 - Dark and light themes that remember the visitor's choice
-- Scroll animations, an animated typing line and skill filters, with a reduced-motion mode for visitors who turn animation off
-- Accessible: a skip link, keyboard focus outlines and ARIA labels
+- A contact form that emails me and sends the visitor a confirmation, with spam and rate-limit protection
+- Reduced-motion mode, a skip link, keyboard focus outlines and ARIA labels
 - SEO and social-preview tags and structured data
-- Optimised images (WebP with a JPEG fallback)
 
 ```
 index.html        page content
 css/style.css     themes, layout, responsive rules
-js/main.js        interactions
-assets/           photo, preview image, favicon, CV
+js/main.js        interactions, syntax highlighter, neural background
+api/contact.js    Vercel serverless function that sends contact-form email
+assets/           social preview image, favicon, CV
 ```
 
-To run it locally, open `index.html` in any browser.
+## Deploy on Vercel (free)
+
+1. In Vercel, choose **Add New → Project** and import this GitHub repository. Keep the defaults: Framework **Other**, with no build command.
+2. In the project, open **Settings → Environment Variables** and add:
+
+   | Name | Value |
+   |---|---|
+   | `GMAIL_USER` | the Gmail address that sends the mail |
+   | `GMAIL_APP_PASSWORD` | a Google **App password** (Google Account → Security → 2-Step Verification → App passwords) |
+   | `CONTACT_TO` | *(optional)* where messages arrive; defaults to `GMAIL_USER` |
+
+3. **Redeploy** so the variables take effect, then send yourself a test message from the live site.
+
+Opened as a plain file, the page still works. The form then falls back to opening the visitor's email app.
 
 ## Contact
 

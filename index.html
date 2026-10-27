@@ -6,7 +6,7 @@
   <title>Ahtisham Qasim — Full-Stack Software Engineer</title>
   <meta name="description" content="Ahtisham Qasim is a full-stack software engineer building production web platforms with Java, Spring, Node.js, React and PostgreSQL — billing systems, e-commerce, customer portals and REST APIs." />
   <meta name="author" content="Ahtisham Qasim" />
-  <meta name="theme-color" content="#07090f" />
+  <meta name="theme-color" content="#06070d" />
   <meta property="og:type" content="profile" />
   <meta property="og:title" content="Ahtisham Qasim — Full-Stack Software Engineer" />
   <meta property="og:description" content="Java · Spring · Node.js · React · PostgreSQL · Oracle. I design, build, test and ship production web platforms end to end." />
@@ -46,6 +46,7 @@
   <a class="skip" href="#main">Skip to content</a>
   <div class="progress" aria-hidden="true"><span></span></div>
   <div class="bg" aria-hidden="true">
+    <canvas id="neural"></canvas>
     <div class="bg-grid"></div>
     <div class="orb orb-a"></div>
     <div class="orb orb-b"></div>
@@ -63,6 +64,7 @@
       <nav class="nav-links" id="navLinks" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
+        <a href="#code">Code</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#education">Education</a>
@@ -123,24 +125,35 @@
       </div>
 
       <div class="hero-visual reveal">
-        <div class="portrait">
-          <div class="portrait-ring" aria-hidden="true"></div>
-          <picture>
-            <source srcset="assets/ahtisham-qasim.webp" type="image/webp" />
-            <img src="assets/ahtisham-qasim.jpg" alt="Portrait of Ahtisham Qasim" width="900" height="1200" fetchpriority="high" />
-          </picture>
+        <div class="stage" aria-hidden="true">
+          <div class="core">
+            <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
+            <span class="core-dot"></span>
+          </div>
+          <span class="hud hud-tl"></span><span class="hud hud-tr"></span><span class="hud hud-bl"></span><span class="hud hud-br"></span>
+
+          <div class="editor">
+            <div class="win-bar">
+              <i></i><i></i><i></i>
+              <span class="win-tab is-on">engineer.ts</span>
+              <span class="win-tab">api.java</span>
+            </div>
+            <div class="editor-body">
+              <ol class="gutter"></ol>
+              <pre class="code"><code id="heroCode" data-lang="ts"></code><span class="caret caret-code"></span></pre>
+            </div>
+            <div class="scan"></div>
+          </div>
+
+          <div class="terminal">
+            <div class="win-bar"><i></i><i></i><i></i><span>zsh — deploy</span></div>
+            <div class="term-body" id="term"></div>
+          </div>
+
           <div class="chip chip-a"><span class="chip-ico">☕</span> Java · Spring</div>
           <div class="chip chip-b"><span class="chip-ico">⚛</span> React 19</div>
-          <div class="chip chip-c"><span class="chip-ico">🟢</span> Node · Express</div>
+          <div class="chip chip-c"><span class="chip-ico">⬢</span> Node · Express</div>
           <div class="chip chip-d"><span class="chip-ico">🐘</span> PostgreSQL</div>
-          <div class="code-card" aria-hidden="true">
-            <div class="code-dots"><i></i><i></i><i></i><span>engineer.js</span></div>
-<pre><code><span class="k">const</span> <span class="v">ahtisham</span> = {
-  <span class="p">role</span>: <span class="s">'Full-Stack Engineer'</span>,
-  <span class="p">stack</span>: [<span class="s">'Java'</span>, <span class="s">'Node'</span>, <span class="s">'React'</span>],
-  <span class="p">ships</span>: <span class="b">true</span>,
-};</code></pre>
-          </div>
         </div>
       </div>
 
@@ -297,10 +310,136 @@
       </div>
     </section>
 
+    <!-- ============ CODE ============ -->
+    <section class="section container" id="code">
+      <header class="sec-head reveal">
+        <span class="eyebrow">03 — In the editor</span>
+        <h2>Code that reads <span class="grad">clean and ships safe</span></h2>
+        <p class="sec-lead">A few representative snippets in the patterns I use every day: secured endpoints, typed contracts and queries that stay fast as data grows.</p>
+      </header>
+
+      <div class="code-show reveal">
+        <div class="code-tabs" role="tablist" aria-label="Code samples">
+          <button class="code-tab is-active" role="tab" aria-selected="true" data-sample="java">
+            <span class="ct-ico ct-java">J</span>
+            <span><b>Spring REST API</b><small>Role-secured billing endpoints</small></span>
+          </button>
+          <button class="code-tab" role="tab" aria-selected="false" data-sample="node">
+            <span class="ct-ico ct-node">N</span>
+            <span><b>Express middleware</b><small>JWT audiences &amp; rate limits</small></span>
+          </button>
+          <button class="code-tab" role="tab" aria-selected="false" data-sample="react">
+            <span class="ct-ico ct-react">R</span>
+            <span><b>React data grid</b><small>Cancellable fetch, sorted view</small></span>
+          </button>
+          <button class="code-tab" role="tab" aria-selected="false" data-sample="sql">
+            <span class="ct-ico ct-sql">S</span>
+            <span><b>SQL reporting</b><small>Overdue balances by package</small></span>
+          </button>
+        </div>
+
+        <div class="code-window">
+          <div class="win-bar">
+            <i></i><i></i><i></i>
+            <span class="win-file" id="codeFile">InvoiceController.java</span>
+            <span class="win-lang" id="codeLang">Java 17</span>
+          </div>
+          <div class="editor-body big">
+            <ol class="gutter" id="codeGutter"></ol>
+            <pre class="code"><code id="codeView"></code></pre>
+          </div>
+          <div class="scan"></div>
+        </div>
+      </div>
+
+<template id="sample-java" data-file="InvoiceController.java" data-lang="Java 17">@RestController
+@RequestMapping("/api/invoices")
+public class InvoiceController {
+
+    private final InvoiceService invoices;
+
+    public InvoiceController(InvoiceService invoices) {
+        this.invoices = invoices;
+    }
+
+    @GetMapping
+    @PreAuthorize("hasAnyRole('ADMIN', 'BILLING')")
+    public Page&lt;InvoiceDto&gt; list(@RequestParam(defaultValue = "PENDING") Status status,
+                                 Pageable page) {
+        return invoices.findByStatus(status, page);
+    }
+
+    @PostMapping("/{id}/payments")
+    @PreAuthorize("hasRole('BILLING')")
+    public ResponseEntity&lt;PaymentDto&gt; verify(@PathVariable Long id,
+                                             @Valid @RequestBody PaymentRequest req) {
+        PaymentDto paid = invoices.verifyPayment(id, req);
+        return ResponseEntity.status(HttpStatus.CREATED).body(paid);
+    }
+}</template>
+<template id="sample-node" data-file="auth.middleware.js" data-lang="Node.js 24">// Every token carries the audience it was issued for.
+export function requireAuth(kind) {
+  return (req, res, next) =&gt; {
+    const token = req.headers.authorization?.replace('Bearer ', '');
+    if (!token) return res.status(401).json({ error: 'Sign in required' });
+
+    try {
+      const claims = jwt.verify(token, process.env.JWT_SECRET);
+      if (claims.kind !== kind) throw new Error('wrong audience');
+      req.user = claims;
+      next();
+    } catch {
+      res.status(401).json({ error: 'Session expired' });
+    }
+  };
+}
+
+router.post('/orders', requireAuth('customer'), rateLimit({ max: 20 }),
+  async (req, res) =&gt; {
+    const order = await orders.place(req.user.id, req.body);
+    res.status(201).json(order);
+  });</template>
+<template id="sample-react" data-file="InvoiceTable.jsx" data-lang="React 19">export default function InvoiceTable({ status }) {
+  const [rows, setRows] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() =&gt; {
+    const ctrl = new AbortController();
+    api.get(`/invoices?status=${status}`, { signal: ctrl.signal })
+      .then(({ data }) =&gt; setRows(data.items))
+      .finally(() =&gt; setLoading(false));
+    return () =&gt; ctrl.abort();
+  }, [status]);
+
+  if (loading) return &lt;Skeleton rows={6} /&gt;;
+
+  return (
+    &lt;DataGrid
+      rows={rows}
+      columns={columns}
+      initialState={{ sorting: { sortModel: [{ field: 'dueDate', sort: 'asc' }] } }}
+    /&gt;
+  );
+}</template>
+<template id="sample-sql" data-file="overdue_by_package.sql" data-lang="PostgreSQL">-- Overdue balance per package, oldest debt first
+SELECT p.name                        AS package,
+       COUNT(i.id)                   AS overdue_invoices,
+       SUM(i.amount - i.paid_amount) AS outstanding,
+       MIN(i.due_date)               AS oldest_due
+FROM   invoices  i
+JOIN   customers c ON c.id = i.customer_id
+JOIN   packages  p ON p.id = c.package_id
+WHERE  i.status = 'PENDING'
+  AND  i.due_date &lt; CURRENT_DATE
+GROUP  BY p.name
+HAVING SUM(i.amount - i.paid_amount) &gt; 0
+ORDER  BY oldest_due;</template>
+    </section>
+
     <!-- ============ EXPERIENCE ============ -->
     <section class="section container" id="experience">
       <header class="sec-head reveal">
-        <span class="eyebrow">03 — Experience</span>
+        <span class="eyebrow">04 — Experience</span>
         <h2>Where I've <span class="grad">made an impact</span></h2>
       </header>
 
@@ -367,7 +506,7 @@
     <!-- ============ PROJECTS ============ -->
     <section class="section container" id="projects">
       <header class="sec-head reveal">
-        <span class="eyebrow">04 — Selected work</span>
+        <span class="eyebrow">05 — Selected work</span>
         <h2>Projects that <span class="grad">run real businesses</span></h2>
         <p class="sec-lead">Production systems used every day by staff and customers.</p>
       </header>
@@ -479,10 +618,6 @@
             <h3>Textile Brand Website</h3>
             <p>A fast one-page showcase for a fabric house: curated collections, gallery and one-tap WhatsApp enquiries, built mobile-first and hosted on GitHub Pages.</p>
             <ul class="tags tags-sm"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>GitHub Pages</li><li>SEO</li></ul>
-            <a class="link-arrow" href="https://ahtishamqasim.github.io/raeesfabrics/" target="_blank" rel="noopener">
-              Visit live site
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
-            </a>
           </div>
         </article>
 
@@ -514,7 +649,7 @@
     <!-- ============ PROCESS ============ -->
     <section class="section container" id="process">
       <header class="sec-head reveal">
-        <span class="eyebrow">05 — How I work</span>
+        <span class="eyebrow">06 — How I work</span>
         <h2>From idea to <span class="grad">production</span></h2>
       </header>
       <div class="process">
@@ -528,7 +663,7 @@
     <!-- ============ EDUCATION ============ -->
     <section class="section container" id="education">
       <header class="sec-head reveal">
-        <span class="eyebrow">06 — Education</span>
+        <span class="eyebrow">07 — Education</span>
         <h2>Academic <span class="grad">foundation</span></h2>
       </header>
       <div class="edu reveal">
@@ -559,7 +694,7 @@
     <section class="section container" id="contact">
       <div class="contact reveal">
         <div class="contact-copy">
-          <span class="eyebrow">07 — Contact</span>
+          <span class="eyebrow">08 — Contact</span>
           <h2>Let's build something <span class="grad">great together</span></h2>
           <p>I'm open to full-time roles, remote contracts and relocation opportunities. If you're hiring or have a project in mind, I'd love to hear about it. I usually reply within a day.</p>
           <ul class="contact-list">
@@ -604,13 +739,18 @@
           </div>
           <div class="field">
             <label for="cf-msg">Message</label>
-            <textarea id="cf-msg" name="message" rows="5" required placeholder="Tell me about the role or project…"></textarea>
+            <textarea id="cf-msg" name="message" rows="5" required maxlength="5000" placeholder="Tell me about the role or project…"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-lg btn-block">
-            Send message
+          <!-- Spam trap: hidden from people, filled in by bots -->
+          <div class="hp" aria-hidden="true">
+            <label for="cf-company">Company website</label>
+            <input id="cf-company" name="company" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" id="sendBtn">
+            <span class="btn-label">Send message</span>
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>
           </button>
-          <p class="form-note" id="formNote" role="status">Opens your email app with the message ready to send.</p>
+          <p class="form-note" id="formNote" role="status">Your message comes straight to my inbox, and you'll get a confirmation email.</p>
         </form>
       </div>
     </section>
