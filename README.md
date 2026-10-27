@@ -2,7 +2,7 @@
 
 Personal portfolio of **Ahtisham Qasim**, a full-stack software engineer who builds production web platforms with Java, Spring, Node.js, React, PostgreSQL and Oracle.
 
-**Live site:** deployed on Vercel (link coming soon)
+**Live site:** https://ahtishamqasim.vercel.app
 
 ## About me
 
