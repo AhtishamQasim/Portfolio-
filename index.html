@@ -520,11 +520,19 @@ ORDER  BY oldest_due;</template>
             <div class="mock-body">
               <aside class="mock-side"><b></b><b class="on"></b><b></b><b></b><b></b><b></b></aside>
               <div class="mock-main">
-                <div class="mock-kpis"><div><small>Revenue</small><em></em></div><div><small>Orders</small><em></em></div><div><small>Customers</small><em></em></div></div>
+                <div class="mock-kpis">
+                  <div><small>Revenue</small><b>Rs 1.84M</b><span class="up">▲ 12.4%</span></div>
+                  <div><small>Orders</small><b>2,340</b><span class="up">▲ 8.1%</span></div>
+                  <div><small>Customers</small><b>1,126</b><span class="up">▲ 5.6%</span></div>
+                </div>
                 <div class="mock-chart">
                   <svg viewBox="0 0 300 90" preserveAspectRatio="none"><defs><linearGradient id="gA" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".45"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><path d="M0 70 C30 60 45 30 75 38 S120 70 150 45 S200 10 230 22 S280 40 300 15 V90 H0Z" fill="url(#gA)"/><path class="draw" d="M0 70 C30 60 45 30 75 38 S120 70 150 45 S200 10 230 22 S280 40 300 15" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
                 </div>
-                <div class="mock-rows"><span></span><span></span><span></span><span></span></div>
+                <div class="m-rows">
+                  <div class="m-row"><span class="av av1">AM</span><span class="m-who"><b>Ayesha Malik</b><small>#10482 · 3 items</small></span><span class="m-amt">Rs 7,450</span><em class="pill pill-ok">Delivered</em></div>
+                  <div class="m-row"><span class="av av2">HR</span><span class="m-who"><b>Hassan Raza</b><small>#10481 · 1 item</small></span><span class="m-amt">Rs 2,190</span><em class="pill pill-info">Shipped</em></div>
+                  <div class="m-row"><span class="av av3">SK</span><span class="m-who"><b>Sana Khan</b><small>#10480 · 5 items</small></span><span class="m-amt">Rs 12,800</span><em class="pill pill-warn">Packing</em></div>
+                </div>
               </div>
             </div>
           </div>
@@ -561,12 +569,28 @@ ORDER  BY oldest_due;</template>
             <div class="mock mock-billing" aria-hidden="true">
               <div class="mock-bar"><i></i><i></i><i></i><span>billing · invoices</span></div>
               <div class="bill-kpis">
-                <div class="k k1"><small>Total</small><b>1,284</b></div>
-                <div class="k k2"><small>Paid</small><b>1,032</b></div>
-                <div class="k k3"><small>Pending</small><b>196</b></div>
-                <div class="k k4"><small>Overdue</small><b>56</b></div>
+                <div class="k k1"><small>Total</small><b>1,284</b><span class="up">▲ 4.2%</span></div>
+                <div class="k k2"><small>Paid</small><b>1,032</b><span class="up">▲ 9.8%</span></div>
+                <div class="k k3"><small>Pending</small><b>196</b><span class="dn">▼ 3.1%</span></div>
+                <div class="k k4"><small>Overdue</small><b>56</b><span class="dn">▼ 11%</span></div>
               </div>
-              <div class="bill-rows"><span><i class="p"></i></span><span><i class="pe"></i></span><span><i class="p"></i></span><span><i class="o"></i></span></div>
+              <div class="bill-mid">
+                <div class="bill-chart">
+                  <div class="bc-head"><b>Collections</b><small>last 12 months</small></div>
+                  <div class="mini-bars">
+                    <i style="--h:42%"></i><i style="--h:55%"></i><i style="--h:48%"></i><i style="--h:63%"></i><i style="--h:58%"></i><i style="--h:71%"></i>
+                    <i style="--h:66%"></i><i style="--h:78%"></i><i style="--h:74%"></i><i style="--h:86%"></i><i style="--h:81%"></i><i style="--h:94%"></i>
+                  </div>
+                </div>
+                <div class="bill-donut">
+                  <div class="donut" style="--p:80%"><span><b>80%</b><small>collected</small></span></div>
+                </div>
+              </div>
+              <div class="m-rows bill-list">
+                <div class="m-row"><span class="av av1">AR</span><span class="m-who"><b>Ali Raza</b><small>Fiber 50 Mbps · INV-2291</small></span><span class="m-amt">Rs 4,500</span><em class="pill pill-ok">Paid</em></div>
+                <div class="m-row"><span class="av av3">FN</span><span class="m-who"><b>Fatima Noor</b><small>Fiber 100 Mbps · INV-2290</small></span><span class="m-amt">Rs 6,800</span><em class="pill pill-warn">Pending</em></div>
+                <div class="m-row"><span class="av av2">UB</span><span class="m-who"><b>Usman Butt</b><small>Home 25 Mbps · INV-2287</small></span><span class="m-amt">Rs 3,200</span><em class="pill pill-bad">Overdue</em></div>
+              </div>
             </div>
           </div>
           <div class="project-body">
