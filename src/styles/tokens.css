@@ -1,0 +1,62 @@
+/* =========================================================
+   Ahtisham Qasim — Portfolio
+   ========================================================= */
+
+:root {
+  --font-display: 'Sora', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+  --radius: 20px;
+  --radius-sm: 12px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --maxw: 1200px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+
+  --a1: #4f8cff;   /* electric blue */
+  --a2: #9b6bff;   /* violet */
+  --a3: #ff5fa2;   /* magenta */
+  --grad: linear-gradient(115deg, var(--a1) 0%, var(--a2) 55%, var(--a3) 100%);
+  /* starts and ends on the same colour so the animated text never shows a seam */
+  --grad-text: linear-gradient(90deg, var(--a1), var(--a2), var(--a1));
+}
+
+/* ---------- Dark (default) ---------- */
+:root,
+:root[data-theme="dark"] {
+  --bg: #06070d;
+  --bg-2: #0b0c18;
+  --surface: rgba(255, 255, 255, .035);
+  --surface-2: rgba(255, 255, 255, .06);
+  --surface-solid: #10141f;
+  --border: rgba(255, 255, 255, .08);
+  --border-strong: rgba(255, 255, 255, .16);
+  --text: #e9edf6;
+  --text-2: #a5adc1;
+  --text-3: #6f788f;
+  --shadow: 0 30px 60px -20px rgba(0, 0, 0, .6);
+  --grid-line: rgba(255, 255, 255, .035);
+  --orb-op: .55;
+  color-scheme: dark;
+}
+
+/* ---------- Light ---------- */
+:root[data-theme="light"] {
+  --bg: #f6f7fb;
+  --bg-2: #eef0f7;
+  --surface: rgba(255, 255, 255, .7);
+  --surface-2: #ffffff;
+  --surface-solid: #ffffff;
+  --border: rgba(15, 23, 42, .08);
+  --border-strong: rgba(15, 23, 42, .16);
+  --text: #0e1424;
+  --text-2: #4a5470;
+  --text-3: #7b849c;
+  --shadow: 0 30px 60px -25px rgba(30, 41, 80, .25);
+  --grid-line: rgba(15, 23, 42, .045);
+  --orb-op: .28;
+  --a1: #2f63e8;
+  --a2: #7c3aed;
+  --a3: #db2777;
+  color-scheme: light;
+}
