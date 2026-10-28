@@ -4,7 +4,7 @@
 @media (max-width: 1080px) {
   .nav-links a { padding: 8px 10px; font-size: .88rem; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
-  .process { grid-template-columns: repeat(2, 1fr); }
+  .process, .values { grid-template-columns: repeat(2, 1fr); }
   .project.featured { grid-template-columns: 1fr; }
   .project.featured .project-visual { border-right: 0; border-bottom: 1px solid var(--border); }
   .code-show { grid-template-columns: 1fr; }
@@ -37,7 +37,8 @@
   .stat:nth-child(2) { border-right: 0; }
   .stat:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
 
-  .about-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .portrait-wrap { max-width: 340px; }
   .bars { grid-template-columns: 1fr; }
   .contact { grid-template-columns: 1fr; }
 }
