@@ -1,4 +1,5 @@
-import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { useReducedMotion } from '@/lib/motion';
 
 /** Tilts its content in 3D towards the mouse. Does nothing for touch or reduced motion. */
 export default function Tilt({ children, className, max = 8 }) {

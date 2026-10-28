@@ -1,0 +1,72 @@
+/* ---------- Intro loader ---------- */
+html.is-loading, html.is-loading body { overflow: hidden; }
+.loader {
+  position: fixed; inset: 0; z-index: 1000;
+  display: grid; place-content: center; justify-items: center; gap: 18px;
+  background: radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--a2) 18%, var(--bg)), var(--bg) 60%);
+}
+.loader-core { position: relative; width: 170px; height: 170px; display: grid; place-items: center; margin-bottom: 8px; }
+.loader-mark {
+  position: relative; z-index: 1; width: 66px; height: 66px; border-radius: 18px; display: grid; place-items: center;
+  background: var(--grad); color: #fff; font-family: var(--font-display); font-weight: 800; font-size: 1.45rem;
+  box-shadow: 0 0 50px -6px var(--a2);
+}
+.loader-text { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .32em; color: var(--text-2); }
+.loader-bar { width: 220px; height: 3px; border-radius: 3px; background: var(--surface-2); overflow: hidden; }
+.loader-bar span { display: block; height: 100%; background: var(--grad); transform-origin: left; box-shadow: 0 0 12px var(--a2); }
+.loader-pct { font-family: var(--font-mono); font-size: .72rem; color: var(--text-3); }
+
+/* ---------- Custom cursor (mouse devices only) ---------- */
+.cursor-dot, .cursor-ring { position: fixed; left: 0; top: 0; z-index: 999; pointer-events: none; border-radius: 50%; }
+.cursor-dot { width: 8px; height: 8px; margin: -4px 0 0 -4px; background: var(--a2); box-shadow: 0 0 14px var(--a2); }
+.cursor-ring { width: 38px; height: 38px; margin: -19px 0 0 -19px; border: 1.5px solid var(--a1); box-shadow: 0 0 18px -4px var(--a1), inset 0 0 12px -6px var(--a2); }
+
+/* ---------- Text reveals ---------- */
+.hero-hi { display: inline-block; perspective: 600px; }
+.letter { display: inline-block; transform-origin: 50% 100%; }
+.name-word { display: inline-block; margin-right: .22em; }
+.name-word:last-of-type { margin-right: 0; }
+.word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .12em; margin-bottom: -.12em; margin-right: .26em; }
+.word:last-child { margin-right: 0; }
+.word-in { display: inline-block; transform-origin: 0 100%; }
+.sec-line { display: block; width: 96px; height: 3px; margin-top: 18px; border-radius: 3px; background: var(--grad); transform-origin: left; box-shadow: 0 0 14px -2px var(--a2); }
+
+/* ---------- Background parallax layers ---------- */
+.orb-layer { position: absolute; inset: 0; }
+
+/* ---------- Two-row marquee ---------- */
+.marquee { display: grid; gap: 14px; }
+.marquee-track.rev { animation-direction: reverse; animation-duration: 48s; }
+.marquee-track.rev span { color: transparent; -webkit-text-stroke: 1px color-mix(in srgb, var(--text-3) 80%, transparent); }
+
+/* ---------- Shine sweep on primary buttons ---------- */
+.btn-primary { position: relative; overflow: hidden; isolation: isolate; }
+.btn-primary::after {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.45) 50%, transparent 70%);
+  transform: translateX(-130%); animation: shine-sweep 4.5s ease-in-out infinite;
+}
+.btn-primary:hover::after { animation-duration: 1.2s; }
+@keyframes shine-sweep { 0%, 55% { transform: translateX(-130%); } 85%, 100% { transform: translateX(130%); } }
+
+/* ---------- Scroll cue ---------- */
+.hero { position: relative; }
+.scroll-cue { position: absolute; left: 50%; bottom: 0; translate: -50% 0; display: grid; justify-items: center; gap: 6px; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-3); }
+.mouse { width: 22px; height: 34px; border-radius: 12px; border: 1.5px solid var(--border-strong); display: grid; justify-items: center; padding-top: 6px; }
+.wheel { width: 3px; height: 7px; border-radius: 3px; background: var(--a2); animation: wheel 1.8s ease-in-out infinite; }
+@keyframes wheel { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(10px); opacity: 0; } 100% { opacity: 0; } }
+
+/* ---------- Misc ---------- */
+.mock-pop { width: 100%; }
+.value-ico { animation: bob 5s ease-in-out infinite; }
+.values .value:nth-child(2) .value-ico { animation-delay: -1.2s; }
+.values .value:nth-child(3) .value-ico { animation-delay: -2.4s; }
+.values .value:nth-child(4) .value-ico { animation-delay: -3.6s; }
+
+@media (max-width: 900px) {
+  .scroll-cue { display: none; }
+}
+
+@media (min-width: 901px) {
+  .hero { padding-bottom: 88px; }
+}

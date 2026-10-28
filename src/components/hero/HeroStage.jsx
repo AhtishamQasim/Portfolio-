@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { INTRO_DELAY, useReducedMotion } from '@/lib/motion';
 import { heroCode, terminalLines } from '@/data/codeSamples';
 import { heroChips } from '@/data/profile';
 import { useLoopingTyping } from '@/hooks/useTypewriter';
@@ -23,7 +24,7 @@ function useTerminalFeed(lines, keep = 5) {
       i = (i + 1) % lines.length;
       timer = setTimeout(next, i === 0 ? 3200 : 1100);
     };
-    timer = setTimeout(next, 600);
+    timer = setTimeout(next, (INTRO_DELAY + 1) * 1000);
     return () => clearTimeout(timer);
   }, [lines, keep, reduce]);
 
@@ -37,17 +38,22 @@ export default function HeroStage() {
 
   return (
     <div className="stage" aria-hidden="true">
-      <div className="core">
+      <motion.div
+        className="core"
+        initial={{ scale: 0.3, opacity: 0, rotate: -90 }}
+        animate={{ scale: 1, opacity: 1, rotate: 0 }}
+        transition={{ duration: 1.4, delay: INTRO_DELAY, ease: [0.2, 0.8, 0.2, 1] }}
+      >
         <span className="ring r1" /><span className="ring r2" /><span className="ring r3" />
         <span className="core-dot" />
-      </div>
+      </motion.div>
       <span className="hud hud-tl" /><span className="hud hud-tr" /><span className="hud hud-bl" /><span className="hud hud-br" />
 
       <motion.div
         className="editor"
-        initial={{ opacity: 0, y: 30, scale: 0.96 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.9, delay: 0.35, ease: [0.2, 0.8, 0.2, 1] }}
+        initial={{ opacity: 0, y: 60, scale: 0.85, rotateY: -25 }}
+        animate={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
+        transition={{ duration: 1, delay: INTRO_DELAY + 0.3, ease: [0.2, 0.8, 0.2, 1] }}
       >
         <div className="win-bar">
           <i /><i /><i />
@@ -62,7 +68,7 @@ export default function HeroStage() {
         className="terminal"
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 0.7, ease: [0.2, 0.8, 0.2, 1] }}
+        transition={{ duration: 0.8, delay: INTRO_DELAY + 0.8, ease: [0.2, 0.8, 0.2, 1] }}
       >
         <div className="win-bar"><i /><i /><i /><span>zsh — deploy</span></div>
         <div className="term-body">
@@ -80,7 +86,7 @@ export default function HeroStage() {
           className={`chip ${chipPositions[i]}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1 + i * 0.15, duration: 0.6 }}
+          transition={{ delay: INTRO_DELAY + 1.1 + i * 0.15, duration: 0.6 }}
         >
           <span className="chip-ico">{c.icon}</span> {c.label}
         </motion.div>

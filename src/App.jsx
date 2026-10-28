@@ -1,9 +1,12 @@
 import { MotionConfig } from 'framer-motion';
+import { RESPECT_REDUCED_MOTION } from '@/lib/motion';
 import { useTheme } from '@/hooks/useTheme';
 import Background from '@/components/layout/Background';
 import Footer from '@/components/layout/Footer';
 import Navbar from '@/components/layout/Navbar';
 import ScrollProgress from '@/components/layout/ScrollProgress';
+import Cursor from '@/components/effects/Cursor';
+import Preloader from '@/components/effects/Preloader';
 import { ToastProvider } from '@/components/ui/Toast';
 import About from '@/components/sections/About';
 import CodeShowcase from '@/components/sections/CodeShowcase';
@@ -20,9 +23,11 @@ export default function App() {
   const { theme, toggle } = useTheme();
 
   return (
-    // reducedMotion="user": visitors who turn off animations in their OS get a calm page.
-    <MotionConfig reducedMotion="user">
+    // Animations stay on even when the OS asks for reduced motion (see lib/motion.js).
+    <MotionConfig reducedMotion={RESPECT_REDUCED_MOTION ? 'user' : 'never'}>
       <ToastProvider>
+        <Preloader />
+        <Cursor />
         <a className="skip" href="#main">Skip to content</a>
         <ScrollProgress />
         <Background theme={theme} />

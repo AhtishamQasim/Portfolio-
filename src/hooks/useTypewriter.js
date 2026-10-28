@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useReducedMotion } from 'framer-motion';
+import { INTRO_DELAY, useReducedMotion } from '@/lib/motion';
 
 /** Types and deletes each phrase in turn: "I build <phrase>". */
 export function useRotatingTypewriter(phrases, { typeMs = 62, deleteMs = 32, holdMs = 2200 } = {}) {
@@ -58,7 +58,7 @@ export function useLoopingTyping(source, { restartMs = 7000 } = {}) {
         }, restartMs);
       }
     };
-    timer = setTimeout(tick, 400);
+    timer = setTimeout(tick, (INTRO_DELAY + 1) * 1000);
     return () => clearTimeout(timer);
   }, [source, reduce, restartMs]);
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useReducedMotion } from 'framer-motion';
+import { useReducedMotion } from '@/lib/motion';
 
 const LINK = 140; // px: nodes closer than this are joined
 const MOUSE_LINK = 190;

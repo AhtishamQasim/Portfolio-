@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { navLinks, profile } from '@/data/profile';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { cx } from '@/lib/rich';
+import { INTRO_DELAY } from '@/lib/motion';
 import { DownloadIcon, MoonIcon, SunIcon } from '@/components/icons';
 
 const sectionIds = navLinks.map((l) => l.id);
@@ -31,7 +32,7 @@ export default function Navbar({ theme, onToggleTheme }) {
       className={cx('nav', scrolled && 'scrolled')}
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
+      transition={{ duration: 0.7, delay: INTRO_DELAY, ease: [0.2, 0.8, 0.2, 1] }}
     >
       <div className="nav-inner container">
         <a href="#top" className="brand" aria-label={`${profile.name} — home`}>

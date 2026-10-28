@@ -3,7 +3,9 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { profile } from '@/data/profile';
 import { openMailClient, sendContact } from '@/lib/contact';
 import { cx } from '@/lib/rich';
+import AnimatedHeading from '@/components/ui/AnimatedHeading';
 import Reveal from '@/components/ui/Reveal';
+import ScrambleText from '@/components/ui/ScrambleText';
 import { useToast } from '@/components/ui/Toast';
 import { LinkedInIcon, MailIcon, PhoneIcon, PinIcon, SendIcon, TickIcon } from '@/components/icons';
 
@@ -97,8 +99,8 @@ export default function Contact() {
     <section className="section container" id="contact">
       <Reveal className="contact">
         <div className="contact-copy">
-          <span className="eyebrow">08 — Contact</span>
-          <h2>Let&apos;s build something <span className="grad">great together</span></h2>
+          <ScrambleText className="eyebrow" text="08 — Contact" />
+          <AnimatedHeading title="Let's build something" highlight="great together" />
           <p>I&apos;m open to full-time roles, remote contracts and relocation opportunities. If you&apos;re hiring or have a project in mind, I&apos;d love to hear about it. I usually reply within a day.</p>
           <ContactList />
         </div>

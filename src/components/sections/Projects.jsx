@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { featuredProject, projects } from '@/data/projects';
 import { cx, rich } from '@/lib/rich';
 import { spotlight } from '@/lib/spotlight';
@@ -48,7 +49,17 @@ export default function Projects() {
           const Mock = mockups[p.mockup];
           return (
             <Reveal as="article" key={p.title} className="project card" delay={(i % 2) * 0.1} onPointerMove={spotlight} whileHover={{ y: -6 }}>
-              <div className="project-visual small"><Mock /></div>
+              <div className="project-visual small">
+                <motion.div
+                  className="mock-pop"
+                  initial={{ opacity: 0, y: 60, scale: 0.92 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.9, delay: 0.15, ease: [0.2, 0.8, 0.2, 1] }}
+                >
+                  <Mock />
+                </motion.div>
+              </div>
               <ProjectBody project={p} compact />
             </Reveal>
           );

@@ -1,4 +1,5 @@
-import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { useReducedMotion } from '@/lib/motion';
 
 /** Pulls its child a few pixels towards the cursor, like a magnet. */
 export default function Magnetic({ children, strength = 0.25 }) {

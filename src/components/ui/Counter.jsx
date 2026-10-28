@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { animate, useInView, useReducedMotion } from 'framer-motion';
+import { animate, useInView } from 'framer-motion';
+import { useReducedMotion } from '@/lib/motion';
 
 const format = (v, decimals, suffix) => v.toFixed(decimals) + suffix;
 
