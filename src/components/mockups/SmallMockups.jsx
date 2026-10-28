@@ -40,11 +40,12 @@ export function TicketsMock() {
 }
 
 /* ---------- Brand website ---------- */
+// Photos: Unsplash (Unsplash License), resized into public/projects.
 const fabrics = [
-  { name: 'Embroidered Lawn', tag: 'New', pattern: 'pat-emb' },
-  { name: 'Printed Chiffon', tag: 'Trending', pattern: 'pat-stripe' },
-  { name: 'Cotton Checks', tag: '', pattern: 'pat-check' },
-  { name: 'Velvet Shawls', tag: 'Winter', pattern: 'pat-dots' },
+  { name: 'Bridal Wear', tag: 'New', img: '/projects/site-bridal.webp' },
+  { name: 'Formal Collection', tag: 'Trending', img: '/projects/site-formal.webp' },
+  { name: 'Casual Pret', tag: '', img: '/projects/site-casual.webp' },
+  { name: "Men's Shawls", tag: 'Winter', img: '/projects/site-shawls.webp' },
 ];
 
 export function SiteMock() {
@@ -56,18 +57,20 @@ export function SiteMock() {
         <span className="site-links"><i>Collections</i><i>Gallery</i><i>Visit us</i></span>
         <span className="site-wa">WhatsApp</span>
       </div>
-      <div className="site-hero">
-        <div>
-          <small>New collection · 2026</small>
-          <h4>Unstitched Lawn &amp; Chiffon</h4>
+      <div className="site-hero" style={{ backgroundImage: 'url(/projects/site-banner.webp)' }}>
+        <div className="site-hero-copy">
+          <small>Season 2026</small>
+          <h4>New Season Arrivals</h4>
           <span className="site-btn">Enquire on WhatsApp →</span>
         </div>
-        <div className="site-hero-swatch pat-emb" />
       </div>
       <div className="site-gallery">
         {fabrics.map((f) => (
           <div key={f.name} className="fabric">
-            <div className={`fabric-img ${f.pattern}`}>{f.tag && <em>{f.tag}</em>}</div>
+            <div className="fabric-img">
+              <img src={f.img} alt="" loading="lazy" width="300" height="400" />
+              {f.tag && <em>{f.tag}</em>}
+            </div>
             <b>{f.name}</b>
           </div>
         ))}
