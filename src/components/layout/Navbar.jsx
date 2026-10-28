@@ -4,7 +4,7 @@ import { navLinks, profile } from '@/data/profile';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { cx } from '@/lib/rich';
 import { INTRO_DELAY } from '@/lib/motion';
-import { DownloadIcon, MoonIcon, SunIcon } from '@/components/icons';
+import { DownloadIcon, MoonIcon, SendIcon, SunIcon } from '@/components/icons';
 
 const sectionIds = navLinks.map((l) => l.id);
 
@@ -47,7 +47,9 @@ export default function Navbar({ theme, onToggleTheme }) {
               {active === l.id && <motion.span layoutId="nav-dot" className="nav-dot" transition={{ type: 'spring', stiffness: 380, damping: 30 }} />}
             </a>
           ))}
-          <a href={profile.resume} className="btn btn-sm btn-primary nav-cta-mobile" download>Download CV</a>
+          {profile.resume && (
+            <a href={profile.resume} className="btn btn-sm btn-primary nav-cta-mobile" download>Download CV</a>
+          )}
         </nav>
 
         <div className="nav-actions">
@@ -59,9 +61,15 @@ export default function Navbar({ theme, onToggleTheme }) {
           >
             {theme === 'light' ? <MoonIcon /> : <SunIcon />}
           </motion.button>
-          <a href={profile.resume} className="btn btn-sm btn-primary nav-cta" download>
-            <DownloadIcon /> Résumé
-          </a>
+          {profile.resume ? (
+            <a href={profile.resume} className="btn btn-sm btn-primary nav-cta" download>
+              <DownloadIcon /> Résumé
+            </a>
+          ) : (
+            <a href="#contact" className="btn btn-sm btn-primary nav-cta">
+              Hire me <SendIcon width={15} height={15} />
+            </a>
+          )}
           <button
             className="icon-btn burger"
             aria-label={open ? 'Close menu' : 'Open menu'}

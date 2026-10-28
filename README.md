@@ -39,7 +39,7 @@ Built with **React 19**, **Vite 8** and **Framer Motion**, plus one small server
 
 ```
 api/contact.js          Vercel serverless function (sends the contact-form email)
-public/                 favicon, social preview image, CV
+public/                 favicon, social preview image (add a CV PDF here to show the Résumé button)
 src/
   data/                 all site content: profile, about, skills, experience, projects, code samples
   components/
