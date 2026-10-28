@@ -92,6 +92,9 @@
   .phone-hero { height: 44px; }
   .project-visual.small { min-height: 190px; padding: 18px 18px 0; }
   .bill-kpis { grid-template-columns: repeat(2, 1fr); }
+  .prio, .site-links { display: none; }
+  .ops-line { grid-template-columns: 8px 76px 1fr 40px; }
+  .site-hero h4 { font-size: .82rem; }
   .bill-mid { grid-template-columns: minmax(0, 1fr) 96px; }
   .donut { width: 74px; }
   .mock-dash .m-amt { display: none; }
