@@ -11,8 +11,8 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/ahtishamqasim',
   linkedinLabel: 'in/ahtishamqasim',
   github: 'https://github.com/AhtishamQasim',
-  // To show the Résumé buttons again, put the PDF in public/ and set: resume: '/Ahtisham-Qasim-Resume.pdf'
-  resume: null,
+  // PDF in public/. Set to null to hide the Résumé buttons (the nav then shows "Hire me").
+  resume: '/Ahtisham-Qasim-Resume.pdf',
   availability: 'Open to remote & international opportunities',
 };
 
